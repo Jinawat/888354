@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var minNumber = 1;
+				var maxNumber = 1000;
+				var randomnumber01 = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+				$('#num_ran01').html(randomnumber01);
+				var randomnumber02 = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+				$('#num_ran02').html(randomnumber02);
+	
+				$("#btn_ran").click(function(){
+					var minNumber = 1;
+					var maxNumber = 1000;
+					var randomnumber01 = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+					$('#num_ran01').html(randomnumber01);
+					var randomnumber02 = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber);
+					$('#num_ran02').html(randomnumber02);
+				});
+				
+				$("#send").click(function(){
+					var sum = parseInt($('#num_ran01').html()) + parseInt($('#num_ran02').html());
+					var result = $('#ans').val();
+					if (result == sum){
+						var answer = "That's correct.";
+						$('#res').html(answer);
+						$("#res").css("color", "green");
+					} else if (result != sum){
+						var answer = "That's wrong. The answer is";
+						$('#res').html(answer);
+						$("#res").css("color", "red");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<center>
+			<h2>Ex - Randdom Number for Answer</h2><hr>
+			<button id="btn_ran">Randdom Number</button><br><br>
+			<a id="num_ran01"></a> + 
+			<a id="num_ran02"></a> = 
+			<input type="text" id="ans"><br><br>
+			<button id="send">Send Answer</button><br><br>
+			Result : <a id="res"></a>
+		</center>
+	</body>
+</html>
